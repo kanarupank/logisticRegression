@@ -47,3 +47,16 @@ model_ = LogisticRegression()
 model_.fit(X_train_, Y_train_)
 resultReplacedData = model.score(X_test_, Y_test_)
 print("Accuracy: %.2f%%" % (resultReplacedData*100.0))
+
+#with missing data removed
+y_pred = model.predict(X_test)
+from sklearn.metrics import confusion_matrix
+confusion_matrix = confusion_matrix(Y_test, y_pred)
+print(confusion_matrix)
+
+#with replaced data
+y_pred_ = model_.predict(X_test_)
+from sklearn.metrics import confusion_matrix
+confusion_matrix_ = confusion_matrix(Y_test_, y_pred_)
+print(confusion_matrix_)
+
